@@ -1,5 +1,6 @@
 import json
 import unittest
+
 import requests
 
 url = 'http://127.0.0.1:5000/visited_links'
@@ -12,6 +13,11 @@ postjson = {
         "https://sber.ru",
         "https://stackoverflow.com/questions/65724760/how-it-is"]
 }
+testDomains = [
+    "ya.ru",
+    "sber.ru",
+    "stackoverflow.com"
+]
 
 
 class MyTestCase(unittest.TestCase):
@@ -34,7 +40,7 @@ class MyTestCase(unittest.TestCase):
 
         assert (json.loads(postresp.text)['status'] == 'ok'), 'POSTReq'
         assert (json.loads(getresp.text)['status'] == 'ok'), 'GETReq'
-        assert (json.loads(getresp.text)['domains'] == postjson['links'])
+        assert (json.loads(getresp.text)['domains'] == testDomains)
 
 
 if __name__ == '__main__':

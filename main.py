@@ -1,6 +1,7 @@
 import sqlite3
 import time
 
+from urllib.parse import urlparse
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -58,7 +59,7 @@ def visited_links():
 
             time_to_write = ((str(int(time.time())) + ',') if is_this_unique else '') + index
             cursor.execute('INSERT OR REPLACE INTO Links (link, time) VALUES (?, ?)',
-                           (link, time_to_write))
+                           (urlparse(link).netloc, time_to_write))
             connection.commit()
         connection.close()
 
