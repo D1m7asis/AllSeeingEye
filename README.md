@@ -1,8 +1,8 @@
 0. По необходимости установить библиотеки:
 
-0.1 pip install requests
-0.2 pip install flask
-0.3 pip install requests
+pip install requests
+pip install flask
+pip install requests
 
 1. Скачать репозиторий
 
