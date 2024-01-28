@@ -1,3 +1,9 @@
+0. По необходимости установить библиотеки:
+
+pip install requests
+pip install flask
+pip install requests
+
 1. Скачать репозиторий
 
 2. Запустить main.py
