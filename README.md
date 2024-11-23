@@ -1,73 +1,63 @@
-0. По необходимости установить библиотеки:
+## 1. Установить библиотеки из [requirements](requirements.txt)
 
-pip install requests
+## 2. Запустить main.py
 
-pip install flask
+#### У вас будет запущен локальный веб-сервис на [localhost:5000](http://localhost:5000)
 
-pip install requests
+`(http://127.0.0.1:5000 к примеру)`
 
-1. Скачать репозиторий
+## 3. Работа с веб-сервисом - путем POST и GET запросов на
 
-2. Запустить main.py
+`http://localhost:5000/visited_links`
 
-У вас будет запущен локальный веб-сервис на адресе localhost:5000 (http://127.0.0.1:5000/ к примеру)
+## Формат POST-запроса:
 
-3. Вы можете работать с сервисом путём POST и GET запросов на адрес http://127.0.0.1:5000/visited_links
-   
-3.1 Пример POST-запроса
+## `POST /visited_links`
 
-   POST /visited_links
-
-   {
-
-"links": [
-
-"https://ya.ru/",
-
-"https://ya.ru/search/?text=мемы+с+котиками",
-
-"https://sber.ru",
-
-"https://stackoverflow.com/questions/65724760/how-it-is"
-
-]
-
-}
-
-ОТВЕТ /visited_links
-
+```
 {
-"status": "ok"
+    "links": "[
+        "https://ya.ru/",
+        "https://ya.ru/search/?text=мемы+с+котиками",
+        "https://sber.ru",
+        "https://stackoverflow.com/questions/65724760/how-it-is"
+    
+    ]"
 }
-HTTP 200
+```
 
-3.2 Пример GET-запроса
+## `RESPONSE:`
 
-GET /visited_domains?from=1545221231&to1545217638
+`HTTP 200`
 
-QUERPARAMS:
-
-"from" - integer. С какого времени в формате (число секунд с начала эпохи)
-
-"to" - integer. По какое время в формате (число секунд с начала эпохи)
-
-ОТВЕТ /visited_links
-
+```
 {
-
-"domains": [
-
-"ya.ru",
-
-"sber.ru",
-
-"stackoverflow.com"
-
-],
-
-"status": "ok"
-
+    "status": "ok"
 }
+```
 
-HTTP 200
+## Формат GET-запроса:
 
+## `GET /visited_domains?from=###&to=###`
+
+### Параметры:
+
+`"from" - integer. С какого времени (секунд с начала эпохи)`
+
+`"to" - integer. По какое время (секунд с начала эпохи)`
+
+## `RESPONSE:`
+
+`HTTP 200`
+
+```
+{
+    "domains": "[
+        "ya.ru",
+        "sber.ru",
+        "stackoverflow.com"
+    ]",
+    
+    "status": "ok"
+}
+```
